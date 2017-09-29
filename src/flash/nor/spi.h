@@ -57,5 +57,8 @@ extern const struct flash_device flash_devices[];
 #define SPIFLASH_PAGE_PROGRAM	0x02 /* Page Program */
 #define SPIFLASH_FAST_READ		0x0B /* Fast Read */
 #define SPIFLASH_READ			0x03 /* Normal Read */
+#define SPIFLASH_4BYTE_READ		0x13 /* Read with 4 byte address */
+#define SPIFLASH_4BYTE_SECTOR_ERASE	0xDC /* Sector Erase with 4 byte address */
+#define SPIFLASH_4BYTE_PAGE_PROGRAM	0x12 /* Page Program with 4 byte address */
 
 #endif /* OPENOCD_FLASH_NOR_SPI_H */
