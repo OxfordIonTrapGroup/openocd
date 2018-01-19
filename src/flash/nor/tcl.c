@@ -1168,8 +1168,8 @@ COMMAND_HANDLER(handle_flash_banks_command)
 	unsigned n = 0;
 	for (struct flash_bank *p = flash_bank_list(); p; p = p->next, n++) {
 		command_print(CMD, "#%d : %s (%s) at " TARGET_ADDR_FMT ", size 0x%8.8" PRIx32 ", "
-			"buswidth %u, chipwidth %u", p->bank_number,
-			p->name, p->driver->name, p->base, p->size,
+			"numsectors %u, buswidth %u, chipwidth %u", p->bank_number,
+			p->name, p->driver->name, p->base, p->size, p->num_sectors,
 			p->bus_width, p->chip_width);
 	}
 	return ERROR_OK;
@@ -1194,6 +1194,8 @@ static int jim_flash_list(Jim_Interp *interp, int argc, Jim_Obj * const *argv)
 		Jim_ListAppendElement(interp, elem, Jim_NewIntObj(interp, p->base));
 		Jim_ListAppendElement(interp, elem, Jim_NewStringObj(interp, "size", -1));
 		Jim_ListAppendElement(interp, elem, Jim_NewIntObj(interp, p->size));
+		Jim_ListAppendElement(interp, elem, Jim_NewStringObj(interp, "num_sectors", -1));
+		Jim_ListAppendElement(interp, elem, Jim_NewIntObj(interp, p->num_sectors));
 		Jim_ListAppendElement(interp, elem, Jim_NewStringObj(interp, "bus_width", -1));
 		Jim_ListAppendElement(interp, elem, Jim_NewIntObj(interp, p->bus_width));
 		Jim_ListAppendElement(interp, elem, Jim_NewStringObj(interp, "chip_width", -1));
