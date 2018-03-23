@@ -3568,6 +3568,7 @@ COMMAND_HANDLER(handle_bp_command)
 				addr = 0;
 				return handle_bp_command_set(CMD_CTX, addr, asid, length, hw);
 			}
+			// fallthrough
 
 		case 4:
 			hw = BKPT_HARD;
