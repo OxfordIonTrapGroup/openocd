@@ -351,10 +351,11 @@ int armv7a_mmu_translate_va_pa(struct target *target, uint32_t va,
 				LOG_INFO("inner: Write-Back, Write-Allocate");
 				break;
 			case 6:
-				LOG_INFO("inner:  Write-Through");
+				LOG_INFO("inner: Write-Through");
 				break;
 			case 7:
 				LOG_INFO("inner: Write-Back, no Write-Allocate");
+				break;
 
 			default:
 				LOG_INFO("inner: %" PRIx32 " ???", INNER);
