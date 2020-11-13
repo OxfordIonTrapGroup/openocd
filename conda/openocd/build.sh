@@ -2,7 +2,8 @@
 
 ./bootstrap
 ./configure --prefix="$PREFIX" \
-    --enable-ftdi
+    --enable-ftdi \
+    CFLAGS="-Wno-implicit-fallthrough -Wno-format-truncation -Wno-format-overflow -Wno-error=tautological-compare"
 make
 make install
 
