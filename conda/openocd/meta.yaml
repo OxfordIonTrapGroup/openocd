@@ -14,7 +14,7 @@ requirements:
     - libusb
   run:
     - libusb
-    - bscan-spi-bitstreams 0.10.0 2
+    - bscan-spi-bitstreams
 
 about:
   home: http://openocd.org/
